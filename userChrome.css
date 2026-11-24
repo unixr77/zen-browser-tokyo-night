@@ -1,0 +1,163 @@
+/* ============================================================================
+ * Tokyo Night (Night) — userChrome.css for Zen Browser 1.24.3b
+ * Palette: https://github.com/folke/tokyonight.nvim
+ *
+ * Dark-only: when Zen runs in light mode the stock look is left untouched.
+ * For Storm, change the five --tn-bg* values in the "Palette" block.
+ * ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+
+  :root {
+    /* ---- Palette ---------------------------------------------------------- */
+    --tn-bg-darkest:   #0c0e14;
+    --tn-bg-dark:      #16161e;
+    --tn-bg:           #1a1b26;
+    --tn-bg-highlight: #292e42;
+    --tn-bg-visual:    #283457;
+    --tn-bg-search:    #3d59a1;
+
+    --tn-fg:           #c0caf5;
+    --tn-fg-dark:      #a9b1d6;
+    --tn-fg-gutter:    #3b4261;
+    --tn-comment:      #565f89;
+    --tn-dark5:        #737aa2;
+
+    --tn-blue:         #7aa2f7;
+    --tn-cyan:         #7dcfff;
+    --tn-magenta:      #bb9af7;
+    --tn-green:        #9ece6a;
+    --tn-orange:       #ff9e64;
+    --tn-yellow:       #e0af68;
+    --tn-red:          #f7768e;
+    --tn-teal:         #1abc9c;
+
+    /* ---- Derived ---------------------------------------------------------- */
+    --tn-hover:  color-mix(in srgb, var(--tn-bg-highlight) 55%, transparent);
+    --tn-active: color-mix(in srgb, var(--tn-bg-highlight) 85%, transparent);
+
+    /* ---- Zen design tokens ------------------------------------------------ */
+    --zen-primary-color:                  var(--tn-blue) !important;
+    --zen-colors-primary:                 var(--tn-bg-dark) !important;
+    --zen-colors-secondary:               var(--tn-bg) !important;
+    --zen-colors-tertiary:                var(--tn-bg-darkest) !important;
+    --zen-colors-border:                  var(--tn-fg-gutter) !important;
+    --zen-colors-hover:                   var(--tn-hover) !important;
+    --zen-colors-input-bg:                var(--tn-bg-highlight) !important;
+    --zen-main-browser-background:        var(--tn-bg-dark) !important;
+    --zen-main-browser-background-toolbar: var(--tn-bg-dark) !important;
+    --zen-themed-toolbar-bg:              var(--tn-bg-dark) !important;
+    --zen-themed-toolbar-bg-transparent:  color-mix(in srgb, var(--tn-bg-dark) 70%, transparent) !important;
+    --zen-dialog-background:              var(--tn-bg) !important;
+    --zen-urlbar-background:              var(--tn-bg-highlight) !important;
+    --zen-branding-bg:                    var(--tn-bg-dark) !important;
+
+    /* ---- Firefox toolbar / tab tokens ------------------------------------- */
+    --lwt-accent-color:                   var(--tn-bg-dark) !important;
+    --lwt-text-color:                     var(--tn-fg) !important;
+    --toolbar-bgcolor:                    var(--tn-bg-dark) !important;
+    --toolbar-color:                      var(--tn-fg) !important;
+    --toolbarbutton-icon-fill:            var(--tn-fg-dark) !important;
+    --toolbarbutton-hover-background:     var(--tn-hover) !important;
+    --toolbarbutton-active-background:    var(--tn-active) !important;
+    --toolbarbutton-focus-outline-color:  var(--tn-blue) !important;
+
+    --toolbar-field-background-color:        var(--tn-bg-highlight) !important;
+    --toolbar-field-color:                   var(--tn-fg) !important;
+    --toolbar-field-border-color:            transparent !important;
+    --toolbar-field-focus-background-color:  var(--tn-bg) !important;
+    --toolbar-field-focus-color:             var(--tn-fg) !important;
+    --toolbar-field-focus-border-color:      var(--tn-blue) !important;
+
+    --tab-selected-bgcolor:               var(--tn-bg-highlight) !important;
+    --tab-selected-textcolor:             var(--tn-fg) !important;
+    --tab-loading-fill:                   var(--tn-blue) !important;
+
+    --sidebar-background-color:           var(--tn-bg-dark) !important;
+    --sidebar-text-color:                 var(--tn-fg) !important;
+    --sidebar-border-color:               var(--tn-fg-gutter) !important;
+
+    /* ---- Panels, menus, address-bar dropdown ------------------------------ */
+    --arrowpanel-background:              var(--tn-bg) !important;
+    --arrowpanel-color:                   var(--tn-fg) !important;
+    --arrowpanel-border-color:            var(--tn-fg-gutter) !important;
+    --arrowpanel-dimmed:                  var(--tn-hover) !important;
+    --arrowpanel-dimmed-further:          var(--tn-active) !important;
+    --panel-background:                   var(--tn-bg) !important;
+    --panel-color:                        var(--tn-fg) !important;
+    --panel-border-color:                 var(--tn-fg-gutter) !important;
+
+    --autocomplete-popup-background:           var(--tn-bg) !important;
+    --autocomplete-popup-color:                var(--tn-fg) !important;
+    --autocomplete-popup-highlight-background: var(--tn-bg-visual) !important;
+    --autocomplete-popup-highlight-color:      var(--tn-fg) !important;
+
+    --urlbarView-highlight-background:    var(--tn-bg-visual) !important;
+    --urlbarView-hover-background:        var(--tn-hover) !important;
+    --urlbarView-separator-color:         var(--tn-fg-gutter) !important;
+    --urlbarView-action-color:            var(--tn-cyan) !important;
+    --urlbarView-url-color:               var(--tn-cyan) !important;
+
+    --focus-outline-color:                var(--tn-blue) !important;
+    --link-color:                         var(--tn-cyan) !important;
+    --link-color-hover:                   var(--tn-blue) !important;
+
+    accent-color: var(--tn-blue);
+  }
+
+  /* Private windows get the magenta accent */
+  :root[privatebrowsingmode] {
+    --zen-primary-color: var(--tn-magenta) !important;
+    --tab-loading-fill:  var(--tn-magenta) !important;
+    accent-color:        var(--tn-magenta);
+  }
+
+  /* ---- Address bar -------------------------------------------------------- */
+  #urlbar-background {
+    background-color: var(--tn-bg-highlight) !important;
+    border: 1px solid transparent !important;
+    box-shadow: none !important;
+  }
+  #urlbar:not([open]):hover > #urlbar-background {
+    background-color: color-mix(in srgb, var(--tn-bg-highlight) 92%, var(--tn-fg)) !important;
+  }
+  #urlbar[focused] > #urlbar-background,
+  #urlbar[open] > #urlbar-background {
+    background-color: var(--tn-bg) !important;
+    border-color: var(--tn-blue) !important;
+  }
+  #urlbar-input::selection,
+  .searchbar-textbox::selection {
+    background-color: var(--tn-bg-search);
+    color: var(--tn-fg);
+  }
+
+  /* ---- Tabs --------------------------------------------------------------- */
+  .tabbrowser-tab:not([selected]):hover .tab-background {
+    background-color: var(--tn-hover) !important;
+  }
+  .tabbrowser-tab[selected] .tab-background {
+    background-color: var(--tn-bg-highlight) !important;
+  }
+  .tabbrowser-tab[selected] .tab-label {
+    color: var(--tn-fg) !important;
+  }
+  .tabbrowser-tab:not([selected]) .tab-label {
+    color: var(--tn-fg-dark) !important;
+  }
+
+  /* ---- Context menus & popups -------------------------------------------- */
+  menupopup > menuitem[_moz-menuactive="true"],
+  menupopup > menu[_moz-menuactive="true"] {
+    background-color: var(--tn-bg-visual) !important;
+    color: var(--tn-fg) !important;
+  }
+  menupopup > menuseparator {
+    border-color: var(--tn-fg-gutter) !important;
+  }
+
+  /* ---- Scrollbars in the browser UI -------------------------------------- */
+  * {
+    scrollbar-color: var(--tn-fg-gutter) transparent;
+  }
+}

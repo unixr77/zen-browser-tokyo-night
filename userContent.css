@@ -1,0 +1,55 @@
+/* ============================================================================
+ * Tokyo Night (Night) — userContent.css for Zen Browser 1.24.3b
+ * Only touches Zen's own about: pages and the blank/new-tab page; regular
+ * websites are left alone.
+ * ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+
+  @-moz-document url-prefix("about:") {
+    :root {
+      --in-content-page-background:            #1a1b26 !important;
+      --in-content-page-color:                 #c0caf5 !important;
+      --in-content-text-color:                 #c0caf5 !important;
+      --in-content-deemphasized-text:          #737aa2 !important;
+
+      --in-content-box-background:             #16161e !important;
+      --in-content-box-background-hover:       #292e42 !important;
+      --in-content-box-background-active:      #283457 !important;
+      --in-content-box-border-color:           #3b4261 !important;
+      --in-content-border-color:               #3b4261 !important;
+      --in-content-border-hover:               #565f89 !important;
+      --in-content-border-highlight:           #7aa2f7 !important;
+      --in-content-focus-outline-color:        #7aa2f7 !important;
+
+      --in-content-accent-color:               #7aa2f7 !important;
+      --in-content-link-color:                 #7dcfff !important;
+      --in-content-link-color-hover:           #7aa2f7 !important;
+      --in-content-link-color-active:          #bb9af7 !important;
+
+      --in-content-button-background:          #292e42 !important;
+      --in-content-button-background-hover:    #3b4261 !important;
+      --in-content-button-background-active:   #414868 !important;
+      --in-content-button-text-color:          #c0caf5 !important;
+
+      --in-content-primary-button-background:        #7aa2f7 !important;
+      --in-content-primary-button-background-hover:  #89b4fa !important;
+      --in-content-primary-button-background-active: #6a93e8 !important;
+      --in-content-primary-button-text-color:        #16161e !important;
+
+      --in-content-selected-text:              #c0caf5 !important;
+      --in-content-item-selected:              #283457 !important;
+      --in-content-item-hover:                 #292e42 !important;
+
+      scrollbar-color: #3b4261 transparent;
+    }
+  }
+
+  @-moz-document url("about:blank"), url("about:newtab"), url("about:home") {
+    :root,
+    body {
+      background-color: #1a1b26 !important;
+      color: #c0caf5 !important;
+    }
+  }
+}
